@@ -24,15 +24,15 @@ version: 0.1.0
 appVersion: "2.4.4"
 
 dependencies:
-- name: operator
+- name: olm-operator
   version: "0.1.0"
   repository: file://../operator
   alias: istio
-- name: operator
+- name: olm-operator
   version: "0.1.0"
   repository: file://../operator
   alias: jaeger
-- name: operator
+- name: olm-operator
   version: "0.1.0"
   repository: file://../operator
   alias: kiali
