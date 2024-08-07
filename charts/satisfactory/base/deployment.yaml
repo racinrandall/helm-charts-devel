@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: satisfactory
+  namespace: satisfactory
+spec:
+  replica: 1
+  serviceName: satisfactory
+  selector:
+    matchLabels:
+      app: game
+      game: satisfactory
+  minReadySeconds: 0
+  template:
+    metadata:
+      labels:
+        app: game
+        game: satisfactory
+    spec:
+      containers:
+      - name: server
+        image: docker.io/wolveix/satisfactory-server:latest
+        envFrom:
+        - secretRef:
+            name: satisfactory-env
+        ports:
+        - name: game
+          containerPort: 7777
+          protocol: UDP
+        - name: beacon
+          containerPort: 15000
+          protocol: UDP
+        - name: query
+          containerPort: 15777
+          protocol: UDP
+        volumeMounts:
+        - name: game-data
+          mountPath: /config
+        resources:
+          requests:
+            cpu: "1"
+            memory: 12Gi
+          limits:
+            cpu: "2"
+            memory: 16Gi
+        securityContext:
+          allowPrivilegeEscalation: true
+          runAsNonRoot: false
+  
+  # volumeClaimTemplates:
+  # - metadata:
+  #     name: game-data
+  #   spec:
+  #     accessModes: [ "ReadWriteOnce" ]
+  #     # storageClassName: "lvms-vg1"
+  #     resources:
+  #       requests:
+  #         storage: 20Gi

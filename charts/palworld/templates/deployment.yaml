@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palworld
+  namespace: palworld
+spec:
+  selector:
+    matchLabels:
+        app: game
+        game: palworld
+  template:
+    metadata:
+      labels:
+        app: game
+        game: palworld
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: palworld
+        # image: quay.io/hyperkineticnerd/steamdcmd:latest
+        image: thijsvanloef/palworld-server-docker:latest
+        env:
+          - name: PUID
+            value: '1001'
+          - name: PGID
+            value: '1001'
+          - name: PORT
+            value: '8211' # Optional but recommended
+          - name: PLAYERS
+            value: '16' # Optional but recommended
+          - name: SERVER_PASSWORD
+            value: {{ Values.server.password | quote }} # Optional but recommended
+          - name: MULTITHREADING
+            value: 'true'
+          - name: RCON_ENABLED
+            value: 'true'
+          - name: RCON_PORT
+            value: '25575'
+          - name: TZ
+            value: "UTC"
+          - name: ADMIN_PASSWORD
+            value: {{ .Values.server.adminPassword | quote }}
+          - name: COMMUNITY
+            value: 'false'  # Enable this if you want your server to show up in the community servers tab, USE WITH SERVER_PASSWORD!
+          - name: SERVER_NAME
+            value: "World of Pals"
+          - name: SERVER_DESCRIPTION
+            value: "palworld-server-docker by Thijs van Loef"
+        securityContext:
+          runAsUser: 0
+          runAsGroup: 0
+          fsGroup: 0
+          seccompProfile:
+            type: RuntimeDefault
+          allowPrivilegeEscalation: true
+          runAsNonRoot: false
+          capabilities:
+            drop: ["ALL"]
+        resources:
+          limits:
+            memory: "32Gi"
+            cpu: "6000m"
+        ports:
+          - name: game
+            containerPort: 8211
+            protocol: UDP
+          - name: query
+            containerPort: 27015
+            protocol: UDP
+        volumeMounts:
+          - name: data
+            mountPath: /palworld
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: pvc-palworld

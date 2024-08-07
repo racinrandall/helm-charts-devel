@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: valheim-env
+  # namespace: valheim
+data:
+  SERVER_NAME: "[HyperKineticNerd] Valheim"
+  WORLD_NAME: HyperKineticNerdThree
+  SERVER_PORT: "2456"
+  SERVER_PUBLIC: "true"
+  SUPERVISOR_HTTP: "true"
+  SUPERVISOR_HTTP_PORT: "9001"
+  STATUS_HTTP: "true"
+  STATUS_HTTP_PORT: "80"
+  # VALHEIM_PLUS: "true"
+  # BEPINEX: "true"
+  # SERVER_ARGS: "-crossplay"
