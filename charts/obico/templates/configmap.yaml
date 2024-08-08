@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: obico-base
+  namespace: obico
+data: {}
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: obico-ml-api
+  namespace: obico
+data:
+  DEBUG: 'True'
+  FLASK_APP: 'server.py'
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: obico-web
+  namespace: obico
+data: {}
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: obico-tasks
+  namespace: obico
+data: {}
