@@ -10,7 +10,7 @@
 
 == Development
 
-This repository is where any in-development Helm Charts live.
+This repository is where any in-development Helm Charts live. These Helm Charts probably don't work or are severely broken.
 
 The following Helm Charts are located here:
 
