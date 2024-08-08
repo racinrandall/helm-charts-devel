@@ -1,25 +1,23 @@
 = HyperKineticNerd Helm Charts
 
-== In Production
+== Stable
 
-* Minecraft
+* Go here for the stable Helm Charts: https://github.com/hyperkineticnerd/helm-charts-stable
 
-== In Development
+== Libraries
 
-=== Games
+* Go here for the library Helm Charts: https://github.com/hyperkineticnerd/helm-charts-library
+
+== Development
+
+This repository is where any in-development Helm Charts live.
+
+The following Helm Charts are located here:
 
 * 7 Days to Die
 * Astroneer
 * Don't Starve Together
 * Enshrouded
 * Palworld
-* Satisfactory
 * Subnautica
 * The Forest
-* Valheim
-
-=== OpenShift/Kubernetes Operators
-
-* External DNS Operator
-* OLM Operator
-* OpenShift Service Mesh Operator
