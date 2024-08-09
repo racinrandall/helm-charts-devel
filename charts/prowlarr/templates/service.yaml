@@ -1,15 +1,15 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "prowlarr.fullname" . }}
+  name: prowlarr
   labels:
-    {{- include "prowlarr.labels" . | nindent 4 }}
+    app: prowlarr
+    service: server
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
   selector:
-    {{- include "prowlarr.selectorLabels" . | nindent 4 }}
+    app: prowlarr
+  ports:
+    - protocol: TCP
+      port: 9696
+      targetPort: 9696
