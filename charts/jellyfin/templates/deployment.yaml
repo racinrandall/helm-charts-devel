@@ -1,0 +1,68 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Release.Name }}
+    version: {{ .Chart.AppVersion }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      version: {{ .Chart.AppVersion }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        version: {{ .Chart.AppVersion }}
+      annotations: {{ .Values.podAnnotations }}
+    spec:
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+        - name: media-server
+          image: {{ .Values.image.repository }}:latest
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /jellyfin/jellyfin
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-env
+          resources:
+            limits:
+              cpu: 6000m
+              memory: 8Gi
+            requests:
+              cpu: 4000m
+              memory: 4Gi
+          ports:
+            - name: http
+              containerPort: 8096
+            - name: https
+              containerPort: 8920
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+            - name: media
+              mountPath: /media
+            - name: config
+              mountPath: /config
+            - name: cache
+              mountPath: /cache
+      volumes:
+      - name: media
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-media
+      - name: config
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-config
+      - name: cache
+        emptyDir:
+          medium: Memory
