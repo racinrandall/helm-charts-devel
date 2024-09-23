@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-stack-movies
+  name: pvc-stack-music
 spec:
   accessModes:
   - ReadWriteMany
   resources:
     requests:
       storage: 10Ti
-  volumeName: nfs-stack-movies
+  volumeName: nfs-stack-music
   storageClassName: ""

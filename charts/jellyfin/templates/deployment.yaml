@@ -18,7 +18,10 @@ spec:
       labels:
         app: {{ .Release.Name }}
         version: {{ .Chart.AppVersion }}
-      annotations: {{ .Values.podAnnotations }}
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
     spec:
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
