@@ -16,6 +16,7 @@ env:
   PGID: 1000
   PUID: 1000
   ROOTLESS: false
+  SERVERGAMEPORT: 7777
 
 imagePullSecrets: []
 nameOverride: ""
@@ -66,21 +67,25 @@ service:
 
 storage:
   backups:
-    accessMode: ReadWriteMany
-    existingVolume: "nfs-satisfactory-backups"
-    storageClassName:
+    size: 5Gi
+    accessMode: ReadWriteOnce
+    existingVolume: ""
+    storageClassName: lvms-vg1
   gamefiles:
-    accessModes: ReadWriteMany
-    existingVolume: "nfs-satisfactory-gamefiles"
-    storageClassName:
+    size: 10Gi
+    accessModes: ReadWriteOnce
+    existingVolume: ""
+    storageClassName: lvms-vg1
   logs:
-    accessModes: ReadWriteMany
-    existingVolume: "nfs-satisfactory-logs"
-    storageClassName:
+    size: 1Gi
+    accessModes: ReadWriteOnce
+    existingVolume: ""
+    storageClassName: lvms-vg1
   saved:
-    accessModes: ReadWriteMany
-    existingVolume: "nfs-satisfactory-saved"
-    storageClassName:
+    size: 5Gi
+    accessModes: ReadWriteOnce
+    existingVolume: ""
+    storageClassName: lvms-vg1
 
 resources:
   limits:

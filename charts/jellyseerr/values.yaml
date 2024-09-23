@@ -45,7 +45,7 @@ service:
   port: 80
 
 ingress:
-  enabled: true
+  enabled: false
   className: "openshift-default"
   annotations:
     route.openshift.io/termination: edge

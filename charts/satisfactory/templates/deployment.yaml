@@ -57,32 +57,32 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: config
-              mountPath: "/config"
-            # - name: backups
-            #   mountPath: "/config/backups"
-            # - name: gamefiles
-            #   mountPath: "/config/gamefiles"
-            # - name: logs
-            #   mountPath: "/config/logs"
-            # - name: saved
-            #   mountPath: "/config/saved"
+            # - name: config
+            #   mountPath: "/config"
+            - name: backups
+              mountPath: "/config/backups"
+            - name: gamefiles
+              mountPath: "/config/gamefiles"
+            - name: logs
+              mountPath: "/config/logs"
+            - name: saved
+              mountPath: "/config/saved"
       volumes:
-        - name: config
+        # - name: config
+        #   persistentVolumeClaim:
+        #     claimName: satisfactory-config
+        - name: backups
           persistentVolumeClaim:
-            claimName: satisfactory-config
-        # - name: backups
-        #   persistentVolumeClaim:
-        #     claimName: satisfactory-backups
-        # - name: gamefiles
-        #   persistentVolumeClaim:
-        #     claimName: satisfactory-gamefiles
-        # - name: logs
-        #   persistentVolumeClaim:
-        #     claimName: satisfactory-logs
-        # - name: saved
-        #   persistentVolumeClaim:
-        #     claimName: satisfactory-saved
+            claimName: {{ include "satisfactory.fullname" . }}-backups
+        - name: gamefiles
+          persistentVolumeClaim:
+            claimName: {{ include "satisfactory.fullname" . }}-gamefiles
+        - name: logs
+          persistentVolumeClaim:
+            claimName: {{ include "satisfactory.fullname" . }}-logs
+        - name: saved
+          persistentVolumeClaim:
+            claimName: {{ include "satisfactory.fullname" . }}-saved
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

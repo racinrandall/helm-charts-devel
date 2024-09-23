@@ -12,14 +12,14 @@ spec:
     - name: game
       protocol: UDP
       port: {{ .Values.service.game.port }}
-      targetPort: 7777
+      targetPort: {{ .Values.service.game.targetPort }}
       {{- if eq .Values.service.game.type "NodePort" }}
       nodePort: {{ .Values.service.game.nodePort }}
       {{- end }}
     - name: gametcp
       protocol: TCP
       port: {{ .Values.service.gametcp.port }}
-      targetPort: 7777
+      targetPort: {{ .Values.service.gametcp.targetPort }}
       {{- if eq .Values.service.gametcp.type "NodePort" }}
       nodePort: {{ .Values.service.gametcp.nodePort }}
       {{- end }}
