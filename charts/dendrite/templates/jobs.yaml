@@ -98,7 +98,6 @@ spec:
         - -c
         - |
           /usr/bin/generate-keys -private-key /etc/dendrite/signing-key.pem
-          chown 1001:1001 /etc/dendrite/signing-key.pem
         securityContext:
           capabilities:
             drop:
