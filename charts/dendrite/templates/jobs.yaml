@@ -84,8 +84,8 @@ spec:
           capabilities:
             drop:
               - ALL
-          runAsUser: 0
-          runAsNonRoot: false
+          runAsUser: 1001
+          runAsNonRoot: true
           allowPrivilegeEscalation: true
         volumeMounts:
         - mountPath: /etc/dendrite/
@@ -104,7 +104,7 @@ spec:
             drop:
               - ALL
           runAsUser: 1001
-          runAsNonRoot: false
+          runAsNonRoot: true
           allowPrivilegeEscalation: true
         volumeMounts:
         - mountPath: /etc/dendrite/
