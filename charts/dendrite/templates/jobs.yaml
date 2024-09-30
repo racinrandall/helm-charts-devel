@@ -103,7 +103,7 @@ spec:
           capabilities:
             drop:
               - ALL
-          runAsUser: 0
+          runAsUser: 1001
           runAsNonRoot: false
           allowPrivilegeEscalation: true
         volumeMounts:
