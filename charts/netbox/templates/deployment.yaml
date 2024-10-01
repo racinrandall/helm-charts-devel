@@ -5,6 +5,9 @@ metadata:
   name: webui-v1
   labels:
     {{- include "netbox.labels" . | nindent 4 }}
+    app: netbox
+    service: webui
+    version: v1
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -12,6 +15,9 @@ spec:
   selector:
     matchLabels:
       {{- include "netbox.selectorLabels" . | nindent 6 }}
+      app: netbox
+      service: webui
+      version: v1
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,6 +25,9 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
+        app: netbox
+        service: webui
+        version: v1
         {{- include "netbox.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
