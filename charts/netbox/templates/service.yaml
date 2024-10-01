@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "netbox.fullname" . }}
+  name: webui
   labels:
     {{- include "netbox.labels" . | nindent 4 }}
     app: netbox
