@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "netbox.fullname" . }}
+  labels:
+    {{- include "netbox.labels" . | nindent 4 }}
+    app: webui
+    service: webui
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "netbox.selectorLabels" . | nindent 4 }}
