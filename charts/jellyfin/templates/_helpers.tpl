@@ -60,3 +60,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create the image of the container to use
+*/}}
+{{- define "jellyfin.imageString" -}}
+{{- if .Values.image.tag }}
+{{- printf "%s:%s" .Values.image.repository .Values.image.tag }}
+{{- else }}
+{{- printf "%s:latest" .Values.image.repository }}
+{{- end }}
+{{- end }}

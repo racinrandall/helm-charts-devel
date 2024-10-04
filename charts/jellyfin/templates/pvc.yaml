@@ -1,3 +1,4 @@
+{{- if .Values.persistentVolumeClaims.media.enabled }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -5,14 +6,15 @@ metadata:
   name: {{ .Release.Name }}-media
   namespace: {{ .Release.Namespace }}
 spec:
-  accessModes:
-  - ReadWriteMany
+  accessModes: {{ .Values.persistentVolumeClaims.media.accessModes }}
   resources:
     requests:
-      storage: 5Ti
-  volumeName: nfs-media
-  storageClassName: ""
+      storage: {{ .Values.persistentVolumeClaims.media.storageSize }}
+  volumeName: {{ .Values.persistentVolumeClaims.media.existingVolumeName | quote }}
+  storageClassName: {{ .Values.persistentVolumeClaims.media.storageClassName | quote }}
+{{- end }}
 
+{{- if .Values.persistentVolumeClaims.config.enabled }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -20,10 +22,10 @@ metadata:
   name: {{ .Release.Name }}-config
   namespace: {{ .Release.Namespace }}
 spec:
-  accessModes:
-  - ReadWriteMany
+  accessModes: {{ .Values.persistentVolumeClaims.config.accessModes }}
   resources:
     requests:
-      storage: 10Gi
-  volumeName: nfs-jellyfin-config
-  storageClassName: ""
+      storage: {{ .Values.persistentVolumeClaims.config.storageSize }}
+  volumeName: {{ .Values.persistentVolumeClaims.config.existingVolumeName | quote }}
+  storageClassName: {{ .Values.persistentVolumeClaims.config.storageClassName | quote }}
+{{- end }}

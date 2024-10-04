@@ -16,12 +16,10 @@ spec:
     spec:
       containers:
         - name: {{ .Release.Name }}
-          image: {{ .Values.image.repository }}:preview-OIDC
+          image: {{ include "jellyseerr.imageString" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          securityContext:
-            allowPrivilegeEscalation: true
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: {{ .Release.Name }}-env
           ports:
             - containerPort: 5055
@@ -29,6 +27,8 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /app/config
+          securityContext:
+            allowPrivilegeEscalation: true
       volumes:
         - name: config
           persistentVolumeClaim:

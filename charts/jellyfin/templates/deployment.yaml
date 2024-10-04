@@ -26,12 +26,12 @@ spec:
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
         - name: media-server
-          image: {{ .Values.image.repository }}:latest
+          image: {{ include "jellyfin.imageString" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - /jellyfin/jellyfin
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: {{ .Release.Name }}-env
           resources:
             limits:
@@ -45,13 +45,6 @@ spec:
               containerPort: 8096
             - name: https
               containerPort: 8920
-          securityContext:
-            allowPrivilegeEscalation: false
-            runAsNonRoot: true
-            capabilities:
-              drop: ["ALL"]
-            seccompProfile:
-              type: RuntimeDefault
           volumeMounts:
             - name: media
               mountPath: /media
@@ -59,6 +52,13 @@ spec:
               mountPath: /config
             - name: cache
               mountPath: /cache
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
       volumes:
       - name: media
         persistentVolumeClaim:
