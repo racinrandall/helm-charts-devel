@@ -7,9 +7,11 @@ metadata:
     app: bazarr
     service: server
 spec:
+  type: ClusterIP
   selector:
     app: bazarr
   ports:
-    - protocol: TCP
+    - name: bazarr
+      protocol: TCP
       port: 6767
       targetPort: 6767

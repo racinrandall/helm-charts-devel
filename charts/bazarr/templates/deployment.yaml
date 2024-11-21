@@ -34,9 +34,16 @@ spec:
               value: '1000'
             - name: TZ
               value: Etc/UTC
+            # - name: UMASK
+            #   value: '002'
           ports:
-            - containerPort: 6767
-              name: radarr
+            - name: bazarr
+              containerPort: 6767
+              protocol: TCP
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             requests:
               cpu: 1000m
