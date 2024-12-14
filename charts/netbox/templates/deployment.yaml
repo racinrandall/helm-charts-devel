@@ -3,11 +3,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webui-v1
+  # namespace: netbox
   labels:
-    {{- include "netbox.labels" . | nindent 4 }}
     app: netbox
     service: webui
     version: v1
+    {{- include "netbox.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}

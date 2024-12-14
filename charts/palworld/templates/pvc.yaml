@@ -10,5 +10,5 @@ spec:
   resources:
     requests:
       storage: 30Gi
-  volumeName: pv-palworld
+  volumeName: nfs-palworld
   storageClassName: ""
