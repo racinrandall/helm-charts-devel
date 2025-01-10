@@ -66,14 +66,14 @@ storage:
     existingVolumeName: ''
     storageClassName: ''
   downloads:
-    enable: false
+    enabled: false
     existingClaimName: ''
     accessModes: ReadWriteOnce
     storageSize: 1Ti
     existingVolumeName: ''
     storageClassName: ''
   books:
-    enable: false
+    enabled: false
     existingClaimName: ''
     accessModes: ReadWriteOnce
     storageSize: 1Ti
