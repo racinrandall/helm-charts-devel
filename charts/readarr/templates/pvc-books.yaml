@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ printf "%s-books" .Release.Name }}
+  name: {{ default (printf "%s-books" .Release.Name) .Values.storage.books.existingClaimName }}
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes: {{ .Values.storage.books.accessModes }}

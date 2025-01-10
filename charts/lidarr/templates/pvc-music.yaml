@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ printf "%s-music" .Release.Name }}
+  name: {{ default (printf "%s-music" .Release.Name) .Values.storage.music.existingClaimName }}
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes: {{ .Values.storage.music.accessModes }}

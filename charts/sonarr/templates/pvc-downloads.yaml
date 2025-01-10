@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ printf "%s-downloads" .Release.Name }}
+  name: {{ default (printf "%s-downloads" .Release.Name) .Values.storage.downloads.existingClaimName }}
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes: {{ .Values.storage.downloads.accessModes }}
