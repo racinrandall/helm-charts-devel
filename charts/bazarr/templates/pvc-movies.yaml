@@ -1,4 +1,5 @@
 {{- if .Values.storage.movies.enabled }}
+{{- if not .Values.storage.movies.existingClaimName }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -12,4 +13,5 @@ spec:
       storage: {{ .Values.storage.movies.storageSize }}
   volumeName: {{ .Values.storage.movies.existingVolumeName | quote }}
   storageClassName: {{ .Values.storage.movies.storageClassName | quote }}
+{{- end }}
 {{- end }}

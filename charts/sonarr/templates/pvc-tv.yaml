@@ -1,9 +1,10 @@
 {{- if .Values.storage.tv.enabled }}
+{{- if not .Values.storage.tv.existingClaimName }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ default (printf "%s-tv" .Release.Name) .Values.storage.tv.existingClaimName }}
+  name: {{ printf "%s-tv" .Release.Name }}
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes: {{ .Values.storage.tv.accessModes }}
@@ -12,4 +13,5 @@ spec:
       storage: {{ .Values.storage.tv.storageSize }}
   volumeName: {{ .Values.storage.tv.existingVolumeName | quote }}
   storageClassName: {{ .Values.storage.tv.storageClassName | quote }}
+{{- end }}
 {{- end }}

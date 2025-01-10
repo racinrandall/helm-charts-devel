@@ -1,9 +1,10 @@
 {{- if .Values.storage.books.enabled }}
+{{- if not .Values.storage.books.existingClaimName }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ default (printf "%s-books" .Release.Name) .Values.storage.books.existingClaimName }}
+  name: {{ printf "%s-books" .Release.Name }}
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes: {{ .Values.storage.books.accessModes }}
@@ -12,4 +13,5 @@ spec:
       storage: {{ .Values.storage.books.storageSize }}
   volumeName: {{ .Values.storage.books.existingVolumeName | quote }}
   storageClassName: {{ .Values.storage.books.storageClassName | quote }}
+{{- end }}
 {{- end }}

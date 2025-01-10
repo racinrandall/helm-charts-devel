@@ -1,9 +1,10 @@
 {{- if .Values.storage.music.enabled }}
+{{- if not .Values.storage.existingClaimName }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ default (printf "%s-music" .Release.Name) .Values.storage.music.existingClaimName }}
+  name: {{ printf "%s-music" .Release.Name }}
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes: {{ .Values.storage.music.accessModes }}
@@ -12,4 +13,5 @@ spec:
       storage: {{ .Values.storage.music.storageSize }}
   volumeName: {{ .Values.storage.music.existingVolumeName | quote }}
   storageClassName: {{ .Values.storage.music.storageClassName | quote }}
+{{- end }}
 {{- end }}

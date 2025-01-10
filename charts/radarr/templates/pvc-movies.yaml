@@ -1,9 +1,10 @@
 {{- if .Values.storage.movies.enabled }}
+{{- if not .Values.storage.movies.existingClaimName }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ default (printf "%s-movies" .Release.Name) .Values.storage.movies.existingClaimName }}
+  name: {{ printf "%s-movies" .Release.Name }}
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes: {{ .Values.storage.movies.accessModes }}
@@ -12,4 +13,5 @@ spec:
       storage: {{ .Values.storage.movies.storageSize }}
   volumeName: {{ .Values.storage.movies.existingVolumeName | quote }}
   storageClassName: {{ .Values.storage.movies.storageClassName | quote }}
+{{- end }}
 {{- end }}
