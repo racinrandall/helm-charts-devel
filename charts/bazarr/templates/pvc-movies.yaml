@@ -1,13 +1,15 @@
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: pvc-stack-movies
-# spec:
-#   accessModes:
-#   - ReadWriteMany
-#   resources:
-#     requests:
-#       storage: 10Ti
-#   volumeName: nfs-stack-movies
-#   storageClassName: ""
+{{- if .Values.storage.movies.enabled }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-movies" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes: {{ .Values.storage.movies.accessModes }}
+  resources:
+    requests:
+      storage: {{ .Values.storage.movies.storageSize }}
+  volumeName: {{ .Values.storage.movies.existingVolumeName | quote }}
+  storageClassName: {{ .Values.storage.movies.storageClassName | quote }}
+{{- end }}

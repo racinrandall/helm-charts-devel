@@ -13,11 +13,6 @@ spec:
       labels:
         app: prowlarr
     spec:
-      volumes:
-        - name: config-prowlarr
-          persistentVolumeClaim:
-            claimName: pvc-config-prowlarr
-
       containers:
         - name: prowlarr
           image: lscr.io/linuxserver/prowlarr:latest
@@ -41,6 +36,9 @@ spec:
           securityContext:
             allowPrivilegeEscalation: true
           volumeMounts:
-            - name: config-prowlarr
+            - name: prowlarr-config
               mountPath: /config
-
+      volumes:
+        - name: prowlarr-config
+          persistentVolumeClaim:
+            claimName: {{ printf "%s-config" .Release.Name }}

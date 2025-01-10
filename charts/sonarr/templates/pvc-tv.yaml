@@ -1,13 +1,15 @@
+{{- if .Values.storage.tv.enabled }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-stack-tv
+  name: {{ printf "%s-tv" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
 spec:
-  accessModes:
-  - ReadWriteMany
+  accessModes: {{ .Values.storage.tv.accessModes }}
   resources:
     requests:
-      storage: 10Ti
-  volumeName: nfs-stack-tv
-  storageClassName: ""
+      storage: {{ .Values.storage.tv.storageSize }}
+  volumeName: {{ .Values.storage.tv.existingVolumeName | quote }}
+  storageClassName: {{ .Values.storage.tv.storageClassName | quote }}
+{{- end }}

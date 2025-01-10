@@ -41,7 +41,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 9696
 
 ingress:
   enabled: false
@@ -58,6 +58,13 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+storage:
+  config:
+    accessModes: ReadWriteOnce
+    storageSize: 10Gi
+    existingVolumeName: ''
+    storageClassName: ''
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

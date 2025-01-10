@@ -1,13 +1,15 @@
+{{- if .Values.storage.books.enabled }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-stack-books
+  name: {{ printf "%s-books" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
 spec:
-  accessModes:
-  - ReadWriteMany
+  accessModes: {{ .Values.storage.books.accessModes }}
   resources:
     requests:
-      storage: 10Ti
-  volumeName: nfs-stack-books
-  storageClassName: ""
+      storage: {{ .Values.storage.books.storageSize }}
+  volumeName: {{ .Values.storage.books.existingVolumeName | quote }}
+  storageClassName: {{ .Values.storage.books.storageClassName | quote }}
+{{- end }}

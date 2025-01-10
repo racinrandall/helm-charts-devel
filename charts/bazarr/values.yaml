@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: lscr.io/linuxserver/bazarr
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -41,7 +41,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 6767
 
 ingress:
   enabled: false
@@ -58,6 +58,27 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+storage:
+  config:
+    accessModes: ReadWriteOnce
+    storageSize: 10Gi
+    existingVolumeName:
+    storageClassName:
+  movies:
+    enable: false
+    existingClaimName: ''
+    accessModes: ReadWriteOnce
+    storageSize: 1Ti
+    existingVolumeName:
+    storageClassName:
+  tv:
+    enable: false
+    existingClaimName: ''
+    accessModes: ReadWriteOnce
+    storageSize: 1Ti
+    existingVolumeName:
+    storageClassName:
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

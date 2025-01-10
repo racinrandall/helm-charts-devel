@@ -1,13 +1,15 @@
+{{- if .Values.storage.downloads.enabled }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-stack-downloads
+  name: {{ printf "%s-downloads" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
 spec:
-  accessModes:
-  - ReadWriteMany
+  accessModes: {{ .Values.storage.downloads.accessModes }}
   resources:
     requests:
-      storage: 10Ti
-  volumeName: nfs-stack-downloads
-  storageClassName: ""
+      storage: {{ .Values.storage.downloads.storageSize }}
+  volumeName: {{ .Values.storage.downloads.existingVolumeName | quote }}
+  storageClassName: {{ .Values.storage.downloads.storageClassName | quote }}
+{{- end }}

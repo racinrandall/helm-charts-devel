@@ -1,13 +1,15 @@
+{{- if .Values.storage.music.enabled }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-stack-music
+  name: {{ printf "%s-music" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
 spec:
-  accessModes:
-  - ReadWriteMany
+  accessModes: {{ .Values.storage.music.accessModes }}
   resources:
     requests:
-      storage: 10Ti
-  volumeName: nfs-stack-music
-  storageClassName: ""
+      storage: {{ .Values.storage.music.storageSize }}
+  volumeName: {{ .Values.storage.music.existingVolumeName | quote }}
+  storageClassName: {{ .Values.storage.music.storageClassName | quote }}
+{{- end }}
