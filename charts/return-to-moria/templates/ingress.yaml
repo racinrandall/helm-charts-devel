@@ -2,9 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "unifi.fullname" . }}
+  name: {{ include "return-to-moria.fullname" . }}
   labels:
-    {{- include "unifi.labels" . | nindent 4 }}
+    {{- include "return-to-moria.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -35,9 +35,9 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "unifi.fullname" $ }}
+                name: {{ include "return-to-moria.fullname" $ }}
                 port:
-                  number: {{ $.Values.service.https.port }}
+                  number: {{ $.Values.service.port }}
           {{- end }}
     {{- end }}
 {{- end }}

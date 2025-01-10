@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-subnautica
+  name: subnautica
   # namespace: subnautica
 spec:
   accessModes:
@@ -17,7 +17,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-nitrox
+  name: nitrox
   # namespace: subnautica
 spec:
   accessModes:

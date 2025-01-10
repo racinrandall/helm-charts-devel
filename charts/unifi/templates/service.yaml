@@ -7,9 +7,17 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - name: http
+      port: {{ .Values.service.http.port }}
       protocol: TCP
-      name: http
+      targetPort: http
+    - name: https
+      port: {{ .Values.service.https.port }}
+      protocol: TCP
+      targetPort: https
+    - name: stun
+      port: {{ .Values.service.stun.port }}
+      protocol: UDP
+      targetPort: stun
   selector:
     {{- include "unifi.selectorLabels" . | nindent 4 }}

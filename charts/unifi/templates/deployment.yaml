@@ -36,24 +36,55 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: UNIFI_STDOUT
+              value: 'true'
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: {{ .Values.service.http.port }}
               protocol: TCP
-          livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
-          readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
+            - name: https
+              containerPort: {{ .Values.service.https.port }}
+              protocol: TCP
+            - name: stun
+              containerPort: {{ .Values.service.stun.port }}
+              protocol: UDP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
+            - name: data
+              mountPath: /unifi/data
+            - name: log
+              mountPath: /unifi/log
+            - name: run
+              mountPath: /unifi/run
+            # - name: cert
+            #   mountPath: /unifi/cert
+            # - name: init
+            #   mountPath: /unifi/init.d
+            {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
+            {{- end }}
       volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: unifi-data
+        - name: log
+          persistentVolumeClaim:
+            claimName: unifi-log
+        - name: run
+          # emptyDir: {}
+          persistentVolumeClaim:
+            claimName: unifi-run
+        # - name: cert
+        #   persistentVolumeClaim:
+        #     claimName: unifi-cert
+        # - name: init
+        #   persistentVolumeClaim:
+        #     claimName: unifi-init
+        {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
