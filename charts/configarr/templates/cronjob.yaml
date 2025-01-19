@@ -31,8 +31,9 @@ spec:
                   subPath: secrets.yml
           volumes:
             - name: app-data
-              persistentVolumeClaim:
-                claimName: media-app-data
+              emptyDir: {}
+              # persistentVolumeClaim:
+              #   claimName: media-app-data
             - name: config-volume
               configMap:
                 name: configarr
