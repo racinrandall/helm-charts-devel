@@ -55,31 +55,31 @@ securityContext:
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
   http:
-    type: ClusterIP
+    type: NodePort
     port: 8080
     protocol: TCP
   https:
-    type: ClusterIP
+    type: NodePort
     port: 8443
     protocol: TCP
   portal-http:
-    type: ClusterIP
+    type: NodePort
     port: 8880
     protocol: TCP
   portal-https:
-    type: ClusterIP
+    type: NodePort
     port: 8843
     protocol: TCP
   stun:
-    type: ClusterIP
+    type: NodePort
     port: 3478
     protocol: UDP
   speedtest:
-    type: ClusterIP
+    type: NodePort
     port: 6789
     protocol: TCP
   discovery:
-    type: ClusterIP
+    type: NodePort
     port: 10001
     protocol: UDP
 
