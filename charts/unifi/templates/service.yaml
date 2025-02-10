@@ -1,7 +1,8 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "unifi.fullname" . }}
+  name: {{ include "unifi.fullname" . }}-web
   labels:
     {{- include "unifi.labels" . | nindent 4 }}
 spec:
@@ -17,6 +18,19 @@ spec:
       protocol: TCP
       targetPort: https
       nodePort: {{ .Values.service.https.port }}
+  selector:
+    {{- include "unifi.selectorLabels" . | nindent 4 }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "unifi.fullname" . }}-discovery
+  labels:
+    {{- include "unifi.labels" . | nindent 4 }}
+spec:
+  type: {{ default .Values.service.https.type .Values.service.stun.type}}
+  ports:
     - name: stun
       port: {{ .Values.service.stun.port }}
       protocol: UDP
