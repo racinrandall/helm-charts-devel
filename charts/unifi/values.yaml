@@ -36,7 +36,21 @@ serviceAccount:
 
 # This is for setting Kubernetes Annotations to a Pod.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ 
-podAnnotations: {}
+podAnnotations:
+  openshift.io/required-scc: "anyuid" 
+  k8s.v1.cni.cncf.io/networks: |-
+    [
+      {
+        "name": "network-vlan",
+        "ips": [
+          "172.16.2.9/24"
+        ],
+        "default-route": [
+          "172.16.2.254"
+        ]
+      }
+    ]
+
 # This is for setting Kubernetes Labels to a Pod.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 podLabels: {}

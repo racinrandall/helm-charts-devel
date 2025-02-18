@@ -12,12 +12,12 @@ spec:
       port: {{ .Values.service.http.port }}
       protocol: TCP
       targetPort: http
-      nodePort: {{ .Values.service.http.port }}
+      # nodePort: {{ .Values.service.http.port }}
     - name: https
       port: {{ .Values.service.https.port }}
       protocol: TCP
       targetPort: https
-      nodePort: {{ .Values.service.https.port }}
+      # nodePort: {{ .Values.service.https.port }}
   selector:
     {{- include "unifi.selectorLabels" . | nindent 4 }}
 

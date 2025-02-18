@@ -35,7 +35,7 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "unifi.fullname" $ }}
+                name: {{ include "unifi.fullname" $ }}-web
                 port:
                   number: {{ $.Values.service.https.port }}
           {{- end }}
