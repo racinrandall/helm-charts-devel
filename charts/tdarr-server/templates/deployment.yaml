@@ -2,7 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tdarr-server
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "tdarr-server.labels" . | nindent 4 }}
 spec:

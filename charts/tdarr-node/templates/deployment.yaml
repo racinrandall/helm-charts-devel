@@ -2,7 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tdarr-node
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "tdarr-node.labels" . | nindent 4 }}
 spec:
@@ -39,7 +40,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - secretRef:
-                name: tdarr-node-env
+                name: {{ printf "%s-env" .Release.Name }}
           ports:
             - name: server
               containerPort: {{ .Values.service.server.port }}
