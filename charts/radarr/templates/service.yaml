@@ -9,7 +9,9 @@ metadata:
 spec:
   selector:
     app: radarr
+  type: {{ .Values.service.type }}
   ports:
-    - protocol: TCP
+    - name: radarr
+      protocol: TCP
       port: 7878
       targetPort: 7878
