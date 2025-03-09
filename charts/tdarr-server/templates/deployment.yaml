@@ -40,7 +40,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - secretRef:
-                name: tdarr-server-env
+                name: {{ printf "%s-env" .Release.Name }}
           ports:
             - name: webui
               containerPort: {{ .Values.service.webui.port }}
