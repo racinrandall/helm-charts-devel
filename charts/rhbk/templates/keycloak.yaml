@@ -1,0 +1,11 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  name: keycloak
+  labels:
+    app: sso
+  namespace: keycloak
+spec: 
+{{- with .Values.keycloakSpec -}}
+{{ toYaml . | nindent 2 }}
+{{- end }}
