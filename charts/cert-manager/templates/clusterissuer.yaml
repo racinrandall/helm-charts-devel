@@ -1,21 +1,20 @@
 apiVersion: cert-manager.io/v1
+{{- if .Values.issuer.cluster }}
 kind: ClusterIssuer
+{{- else -}}
+kind: Issuer
+{{- end }}
 metadata:
-  name: letsencrypt
-  namespace: cert-manager
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
 spec:
   acme:
-    email: sean.nelson.04@gmail.com
-    preferredChain: ""
+    server: {{ .Values.issuer.acmeServer | quote }}
+    email: {{ .Values.issuer.email | quote }}
+    preferredChain: {{ .Values.issuer.preferredChain | quote }}
     privateKeySecretRef:
-      name: letsencrypt-account-key
-    server: https://acme-v02.api.letsencrypt.org/directory
+      name: {{ .Values.issuer.privateKeySecretRef | quote }}
     solvers:
-    - dns01:
-        cloudflare:
-          apiTokenSecretRef:
-            name: cloudflare-api-token-secret
-            key: api-token
-    - http01:
-        ingress:
-          class: openshift-default
+{{- with .Values.issuer.solvers -}}
+{{ toYaml . | nindent 6 }}
+{{- end }}

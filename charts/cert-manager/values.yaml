@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 
 operator:
+  enable: true
   channel: stable-v1
   installPlanApproval: Automatic
   name: openshift-cert-manager-operator
