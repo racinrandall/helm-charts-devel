@@ -4,8 +4,11 @@ operator:
   channel: stable-v26.0
   installPlanApproval: Automatic
   name: rhbk-operator
+  namespace: keycloak
   source: redhat-operators
   sourceNamespace: openshift-marketplace
+  additionalNamespaces:
+    - keycloak
 
 keycloakSpec:
   hostname: 
