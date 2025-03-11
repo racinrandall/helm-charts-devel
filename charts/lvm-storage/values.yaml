@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-operator:
+olm-operator:
   channel: stable-4.14
   installPlanApproval: Automatic
   name: lvms-operator
