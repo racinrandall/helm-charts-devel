@@ -25,6 +25,6 @@ appVersion: "1.1.5"
 
 dependencies:
 - name: olm-operator
-  version: "1.0.1"
+  version: "1.0.2"
   repository: "https://blog.hyperkineticnerd.com/helm-charts-stable/"
   condition: operator.enable
