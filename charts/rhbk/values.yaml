@@ -1,5 +1,5 @@
 
-olm-operator:
+operator:
   enable: true
   channel: stable-v26.0
   installPlanApproval: Automatic
