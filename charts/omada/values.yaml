@@ -8,7 +8,7 @@ image:
   repository: mbentley/omada-controller
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "5.15.8.2"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -34,7 +34,12 @@ serviceAccount:
   name: ""
 
 podAnnotations:
-  k8s.v1.cni.cncf.io/networks: '[{"name": "wifi-mgmt-vlan", "ips": ["172.16.240.2/23"]}]'
+  k8s.v1.cni.cncf.io/networks: |-
+    [
+      {
+        "name": "wifi-mgmt-vlan"
+      }
+    ]
 
 podLabels: {}
 

@@ -11,7 +11,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v9.0.108"
+  tag: ""
 
 # This is for the secretes for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -36,20 +36,13 @@ serviceAccount:
 
 # This is for setting Kubernetes Annotations to a Pod.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ 
-podAnnotations:
-  openshift.io/required-scc: "anyuid" 
-  k8s.v1.cni.cncf.io/networks: |-
-    [
-      {
-        "name": "network-vlan",
-        "ips": [
-          "172.16.2.9/24"
-        ],
-        "default-route": [
-          "172.16.2.254"
-        ]
-      }
-    ]
+podAnnotations: {}
+  # k8s.v1.cni.cncf.io/networks: |-
+  #   [
+  #     {
+  #       "name": "network-vlan"
+  #     }
+  #   ]
 
 # This is for setting Kubernetes Labels to a Pod.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
