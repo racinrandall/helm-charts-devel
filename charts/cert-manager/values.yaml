@@ -10,8 +10,8 @@ operator:
   namespace: cert-manager-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  additionalNamespaces:
-    - cert-manager
+  additionalNamespaces: {}
+    # - cert-manager
 
 issuer:
   cluster: true
