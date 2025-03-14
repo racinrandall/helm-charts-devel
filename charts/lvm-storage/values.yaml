@@ -2,14 +2,17 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-olm-operator:
-  channel: stable-4.14
+operator:
+  channel: stable-4.16
   installPlanApproval: Automatic
   name: lvms-operator
+  namespace:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
+  additionalNamespaces: # []
+    - openshift-storage
 
-lvmDeviceClasses:
+deviceClasses:
   - name: vg1
     thinPoolConfig:
       name: thin-pool-1
