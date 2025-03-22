@@ -18,9 +18,9 @@ spec:
           image: lscr.io/linuxserver/bazarr:latest
           env:
             - name: PUID
-              value: '1000'
+              value: '0'
             - name: PGID
-              value: '1000'
+              value: '0'
             - name: TZ
               value: Etc/UTC
             # - name: UMASK
@@ -42,6 +42,7 @@ spec:
               memory: 4Gi
           securityContext:
             allowPrivilegeEscalation: true
+            runAsNonRoot: false
           volumeMounts:
             - name: bazarr-config
               mountPath: /config
