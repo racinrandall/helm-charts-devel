@@ -16,12 +16,28 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ printf "%s-media" .Release.Name }}
+  name: {{ printf "%s-media-movies" .Release.Name }}
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
     - ReadWriteMany
-  volumeName: {{ printf "nfs-%s-media" .Release.Name }}
+  volumeName: {{ printf "nfs-%s-media-movies" .Release.Name }}
+  storageClassName: ''  
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 10Ti
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-media-television" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeName: {{ printf "nfs-%s-media-television" .Release.Name }}
   storageClassName: ''  
   volumeMode: Filesystem
   resources:
