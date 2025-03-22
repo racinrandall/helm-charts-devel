@@ -1,9 +1,0 @@
-apiVersion: nvidia.com/v1
-kind: ClusterPolicy
-metadata:
-  annotations:
-  name: gpu-cluster-policy
-spec:
-{{- with .Values.clusterPolicySpec -}}
-{{ toYaml . }}
-{{- end }}
