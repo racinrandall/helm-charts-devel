@@ -7,6 +7,8 @@ kind: Issuer
 metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "90"
 spec:
   acme:
     server: {{ .Values.issuer.acmeServer | quote }}
