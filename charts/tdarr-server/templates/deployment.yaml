@@ -61,8 +61,10 @@ spec:
               mountPath: /app/configs
             - name: logs
               mountPath: /app/logs
-            - name: media
-              mountPath: /media
+            - name: media-movies
+              mountPath: /media/movies
+            - name: media-television
+              mountPath: /media/television
             - name: cache
               mountPath: /temp
       volumes:
@@ -72,9 +74,12 @@ spec:
         - name: config
           persistentVolumeClaim:
             claimName: {{ printf "%s-config" .Release.Name }}
-        - name: media
+        - name: media-movies
           persistentVolumeClaim:
-            claimName: {{ printf "%s-media" .Release.Name }}
+            claimName: {{ printf "%s-media-movies" .Release.Name }}
+        - name: media-television
+          persistentVolumeClaim:
+            claimName: {{ printf "%s-media-television" .Release.Name }}
         - name: logs
           emptyDir: {}
         - name: cache
