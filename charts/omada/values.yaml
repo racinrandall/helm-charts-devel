@@ -129,13 +129,13 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes:
-  - name: data
-    persistentVolumeClaim:
-      claimName: omada-data
-  - name: logs
-    persistentVolumeClaim:
-      claimName: omada-logs
+volumes: []
+  # - name: data
+  #   persistentVolumeClaim:
+  #     claimName: omada-data
+  # - name: logs
+  #   persistentVolumeClaim:
+  #     claimName: omada-logs
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:

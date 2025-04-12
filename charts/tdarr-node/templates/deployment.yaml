@@ -1,6 +1,6 @@
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
@@ -58,20 +58,6 @@ spec:
               mountPath: /media/television
             - name: cache
               mountPath: /temp
-      volumes:
-        - name: config
-          persistentVolumeClaim:
-            claimName: {{ printf "%s-config" .Release.Name }}
-        - name: media-movies
-          persistentVolumeClaim:
-            claimName: {{ printf "%s-media-movies" .Release.Name }}
-        - name: media-television
-          persistentVolumeClaim:
-            claimName: {{ printf "%s-media-television" .Release.Name }}
-        - name: logs
-          emptyDir: {}
-        - name: cache
-          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -84,3 +70,26 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+        # - name: config
+        #   persistentVolumeClaim:
+        #     claimName: {{ printf "%s-config" .Release.Name }}
+        - name: media-movies
+          persistentVolumeClaim:
+            claimName: {{ printf "%s-media-movies" .Release.Name }}
+        - name: media-television
+          persistentVolumeClaim:
+            claimName: {{ printf "%s-media-television" .Release.Name }}
+        - name: logs
+          emptyDir: {}
+        - name: cache
+          emptyDir: {}
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ printf "%s-config" .Release.Name }}
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        volumeMode: Filesystem
+        resources:
+          requests:
+            storage: 3Gi
