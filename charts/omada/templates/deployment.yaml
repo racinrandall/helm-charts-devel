@@ -106,7 +106,7 @@ spec:
 
   volumeClaimTemplates:
     - metadata:
-        name: omada-data
+        name: data
       spec:
         accessModes: 
           - ReadWriteMany
@@ -117,7 +117,7 @@ spec:
         storageClassName: 'basic'
 
     - metadata:
-        name: omada-logs
+        name: logs
       spec:
         accessModes: 
           - ReadWriteMany

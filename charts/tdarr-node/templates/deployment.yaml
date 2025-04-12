@@ -86,7 +86,7 @@ spec:
           emptyDir: {}
   volumeClaimTemplates:
     - metadata:
-        name: {{ printf "%s-config" .Release.Name }}
+        name: config
       spec:
         accessModes: [ "ReadWriteOnce" ]
         volumeMode: Filesystem

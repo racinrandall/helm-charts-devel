@@ -98,7 +98,7 @@ spec:
           emptyDir: {}
   volumeClaimTemplates:
     - metadata:
-        name: {{ printf "%s-data" .Release.Name }}
+        name: server
       spec:
         accessModes: [ "ReadWriteOnce" ]
         volumeMode: Filesystem
@@ -106,7 +106,7 @@ spec:
           requests:
             storage: 5Gi
     - metadata:
-        name: {{ printf "%s-config" .Release.Name }}
+        name: config
       spec:
         accessModes: [ "ReadWriteOnce" ]
         volumeMode: Filesystem

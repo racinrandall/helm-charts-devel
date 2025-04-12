@@ -66,25 +66,25 @@ spec:
             {{- toYaml . | nindent 12 }}
             {{- end }}
 
+      {{- with .Values.volumes }}
       volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: unifi-data
-        - name: log
-          persistentVolumeClaim:
-            claimName: unifi-log
-        - name: run
-          persistentVolumeClaim:
-            claimName: unifi-run
+        # - name: data
+        #   persistentVolumeClaim:
+        #     claimName: unifi-data
+        # - name: log
+        #   persistentVolumeClaim:
+        #     claimName: unifi-log
+        # - name: run
+        #   persistentVolumeClaim:
+        #     claimName: unifi-run
         # - name: cert
         #   persistentVolumeClaim:
         #     claimName: unifi-cert
         # - name: init
         #   persistentVolumeClaim:
         #     claimName: unifi-init
-        {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
-        {{- end }}
+      {{- end }}
 
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -101,7 +101,7 @@ spec:
 
   volumeClaimTemplates:
     - metadata:
-        name: unifi-data
+        name: data
       spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:
@@ -111,7 +111,7 @@ spec:
         storageClassName: {{ .Values.storage.data.storageClassName }}
 
     - metadata:
-        name: unifi-log
+        name: log
       spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:
@@ -121,7 +121,7 @@ spec:
         storageClassName: {{ .Values.storage.log.storageClassName }}
 
     - metadata:
-        name: unifi-run
+        name: run
       spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:
