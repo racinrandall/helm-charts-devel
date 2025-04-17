@@ -1,0 +1,422 @@
+apiVersion: v1
+entries:
+  7-days-to-die:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2025-04-17T20:45:15.761670881Z"
+    description: A Helm chart for Kubernetes
+    digest: afffd7f1dc3d4e79696aa50f3e66231fd749bcf1f8cbeb3118d998c6f0ee1a9c
+    name: 7-days-to-die
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/7-days-to-die-0.1.1/7-days-to-die-0.1.1.tgz
+    version: 0.1.1
+  astroneer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:15.961068946Z"
+    description: A Helm chart for Kubernetes
+    digest: 114e3a8d77817641e835811845dc185af9504961421d27981bf974df04555402
+    name: astroneer
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/astroneer-0.1.0/astroneer-0.1.0.tgz
+    version: 0.1.0
+  audiobookshelf:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:16.124805271Z"
+    description: A Helm chart for Kubernetes
+    digest: 8507f96edc6ec95d8fb27c912ced6b19afbfdd3b9512aaa0cf67a51b478d68ff
+    name: audiobookshelf
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/audiobookshelf-0.1.0/audiobookshelf-0.1.0.tgz
+    version: 0.1.0
+  bazarr:
+  - apiVersion: v2
+    appVersion: 1.4.5
+    created: "2025-04-17T20:45:16.300960159Z"
+    description: A Helm chart for Kubernetes
+    digest: 6c26aa30d198b65fca978f8d9f3457df78f5949b715488bfa04a84680e6fa0f0
+    name: bazarr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/bazarr-0.9.5/bazarr-0.9.5.tgz
+    version: 0.9.5
+  configarr:
+  - apiVersion: v2
+    appVersion: 1.13.1
+    created: "2025-04-17T20:45:16.485764396Z"
+    description: A Helm chart for Kubernetes
+    digest: f3720a4d803ddf54fb4c18ef19ed9e62879850a5df0b507266e741861a0a4ba0
+    name: configarr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/configarr-0.1.3/configarr-0.1.3.tgz
+    version: 0.1.3
+  dendrite:
+  - apiVersion: v2
+    appVersion: 0.13.8
+    created: "2025-04-17T20:45:16.686991222Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.2.3
+    description: Dendrite Matrix Homeserver
+    digest: 3eaa5be806d95c77ffc6fa9f8b66f8bad941fd464ed4ec9085a39b7030a3289a
+    home: https://github.com/matrix-org/dendrite
+    icon: https://avatars.githubusercontent.com/u/8418310?s=48&v=4
+    keywords:
+    - matrix
+    - chat
+    - homeserver
+    - dendrite
+    name: dendrite
+    sources:
+    - https://github.com/matrix-org/dendrite
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/dendrite-0.14.7/dendrite-0.14.7.tgz
+    version: 0.14.7
+  dont-starve-together:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:16.855363418Z"
+    description: A Helm chart for Kubernetes
+    digest: 7763d8dc6b0ee8fc0b37211b7c9930e718950d3ca08313accf65417dc3220e37
+    name: dont-starve-together
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/dont-starve-together-0.1.0/dont-starve-together-0.1.0.tgz
+    version: 0.1.0
+  element-web:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:17.041312124Z"
+    description: A Helm chart for Kubernetes
+    digest: b0e16efce07bd69d25ceea41dd3f39efe49fb698cffb76079adaff009b5bc58b
+    name: element-web
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/element-web-0.1.0/element-web-0.1.0.tgz
+    version: 0.1.0
+  enshrouded:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:17.222674858Z"
+    description: A Helm chart for Kubernetes
+    digest: 8a00d81967fe8406f4c5d62092cd3be6d65597f2e91e55456d66abc275823102
+    name: enshrouded
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/enshrouded-0.1.0/enshrouded-0.1.0.tgz
+    version: 0.1.0
+  fluidd:
+  - apiVersion: v2
+    appVersion: 1.1.5
+    created: "2025-04-17T20:45:17.460927189Z"
+    description: A Helm chart for Kubernetes
+    digest: caa109ff43fee7a003b4894f683f968ec65bec5600304f87749543870f779875
+    name: fluidd
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/fluidd-0.1.0/fluidd-0.1.0.tgz
+    version: 0.1.0
+  lidarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:17.636430914Z"
+    description: A Helm chart for Kubernetes
+    digest: ebb0f304bde9c74fa02934ef7a7225ebc4b266535d3d57cd899fb4b24c25489c
+    name: lidarr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/lidarr-0.9.6/lidarr-0.9.6.tgz
+    version: 0.9.6
+  mainsail:
+  - apiVersion: v2
+    appVersion: 1.1.5
+    created: "2025-04-17T20:45:17.844193167Z"
+    description: A Helm chart for Kubernetes
+    digest: 6229a6dfbe4b9f08b47ac7d33d521e9915b0a4a5824ce45e1671424b60ad5102
+    name: mainsail
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/mainsail-0.1.0/mainsail-0.1.0.tgz
+    version: 0.1.0
+  matrix-dendrite:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:18.059938696Z"
+    description: A Helm chart for Kubernetes
+    digest: e2bef97fdebfb353170c5996efa0110fca001a3278e5fe18cb42ff743574709f
+    name: matrix-dendrite
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/matrix-dendrite-0.1.0/matrix-dendrite-0.1.0.tgz
+    version: 0.1.0
+  matrix-synapse:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:18.239974252Z"
+    description: A Helm chart for Kubernetes
+    digest: 6ba6ea5768f0d5b443ed6803ae347c2d0e4e88f42e5dcdf94d6efcfd416db589
+    name: matrix-synapse
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/matrix-synapse-0.1.0/matrix-synapse-0.1.0.tgz
+    version: 0.1.0
+  metube:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:18.400643428Z"
+    description: A Helm chart for Kubernetes
+    digest: f316c1581d71fea7cab85b7ceead6187c5df721fa57a57a687e64a78c054df00
+    name: metube
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/metube-0.1.1/metube-0.1.1.tgz
+    version: 0.1.1
+  netbox:
+  - apiVersion: v2
+    appVersion: 4.2.5
+    created: "2025-04-17T20:45:18.589423357Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.5.37
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.11.3
+    description: A Helm chart for Kubernetes
+    digest: f118875b721fb3f8b6737b0cbe7d89b91a51f42348fa8ff2327c8c5c1f45d15c
+    name: netbox
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/netbox-0.2.6/netbox-0.2.6.tgz
+    version: 0.2.6
+  obico:
+  - apiVersion: v2
+    appVersion: 1.1.5
+    created: "2025-04-17T20:45:18.777876628Z"
+    description: A Helm chart for Kubernetes
+    digest: 7f6d4f7e5c519d12e2120d9acf2afad45b54989b0e745798cbbffe2563deaa78
+    name: obico
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/obico-0.1.0/obico-0.1.0.tgz
+    version: 0.1.0
+  omada:
+  - apiVersion: v2
+    appVersion: 5.15.8.2
+    created: "2025-04-17T20:45:18.959289576Z"
+    description: A Helm chart for Kubernetes
+    digest: ed72367ad12f736176fc37a58d165f2fc741ceaf4f63c56a9104c14dd1ccdd26
+    name: omada
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/omada-0.2.2/omada-0.2.2.tgz
+    version: 0.2.2
+  palworld:
+  - apiVersion: v2
+    appVersion: 1.1.5
+    created: "2025-04-17T20:45:19.18982048Z"
+    description: A Helm chart for Kubernetes
+    digest: 36e7042e85be1345885f5d2da1e5a3e6220d7656e89672b945760b57f3c8ce87
+    name: palworld
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/palworld-0.1.1/palworld-0.1.1.tgz
+    version: 0.1.1
+  prowlarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:19.356127Z"
+    description: A Helm chart for Kubernetes
+    digest: ad811839a3d229a36019f20da5b8482a1c74d2e593f30f930c9b163e677c9bd0
+    name: prowlarr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/prowlarr-0.9.1/prowlarr-0.9.1.tgz
+    version: 0.9.1
+  radarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:19.55832876Z"
+    description: A Helm chart for Kubernetes
+    digest: 1d061d4ad53083d95e82a5e02fbc4645dcaacf34e1a7ebc0d7c2a53873dd69ae
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/radarr-0.9.6/radarr-0.9.6.tgz
+    version: 0.9.6
+  readarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:19.726875852Z"
+    description: A Helm chart for Kubernetes
+    digest: 70b4c12156556a11008a0d5a438f3487aa4779f31a9b9199f1d0758b7d22d8bf
+    name: readarr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/readarr-0.9.5/readarr-0.9.5.tgz
+    version: 0.9.5
+  redirecterr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:19.936272746Z"
+    description: A Helm chart for Kubernetes
+    digest: eadb890034a85e2cd689c0391823fd9a46a855fea6964bfa36be6484dd4d5fd7
+    name: redirecterr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/redirecterr-0.1.0/redirecterr-0.1.0.tgz
+    version: 0.1.0
+  return-to-moria:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:20.134607341Z"
+    description: A Helm chart for Kubernetes
+    digest: 06d6b310d06a65e1da1673ab5fa3562be5241b38dc1a16af92db533d48909655
+    name: return-to-moria
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/return-to-moria-0.1.0/return-to-moria-0.1.0.tgz
+    version: 0.1.0
+  sabnzbd:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:20.336674824Z"
+    description: A Helm chart for Kubernetes
+    digest: dd0e24e2d1fc8bcaed7cf0e35ec7a62e6506e7be906b4be1ecb95decb5fbca72
+    name: sabnzbd
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/sabnzbd-0.1.1/sabnzbd-0.1.1.tgz
+    version: 0.1.1
+  sonarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:20.535654316Z"
+    description: A Helm chart for Kubernetes
+    digest: 397cefcc77189a7af5ab756706558ec71980946f70d262763c6905b314d08a13
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/sonarr-0.9.5/sonarr-0.9.5.tgz
+    version: 0.9.5
+  spoolman:
+  - apiVersion: v2
+    appVersion: 0.19.3
+    created: "2025-04-17T20:45:20.726242744Z"
+    description: A Helm chart for Kubernetes
+    digest: 3b05a155d41bab3f923b6bbb030be7979efd884bd48c381d2b62c22faf026163
+    name: spoolman
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/spoolman-0.1.0/spoolman-0.1.0.tgz
+    version: 0.1.0
+  subnautica:
+  - apiVersion: v2
+    appVersion: 1.1.5
+    created: "2025-04-17T20:45:20.919667323Z"
+    description: A Helm chart for Kubernetes
+    digest: 722998f2582f4397c8ed6ae8cd87440ff297e68a853ceaaed025a4de8e185fe7
+    name: subnautica
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/subnautica-0.1.0/subnautica-0.1.0.tgz
+    version: 0.1.0
+  synology-vdsm:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:21.078055897Z"
+    description: A Helm chart for Kubernetes
+    digest: c240133ca730264ce09ac690408e27068a85e6b4347f6f7b5673bfebf1dae4ea
+    name: synology-vdsm
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/synology-vdsm-0.1.0/synology-vdsm-0.1.0.tgz
+    version: 0.1.0
+  tdarr-node:
+  - apiVersion: v2
+    appVersion: 2.35.02
+    created: "2025-04-17T20:45:21.239775256Z"
+    description: A Helm chart for Kubernetes
+    digest: 695ddbceb6c0eb84dfdb8842ac28874b73237312e7cd7ab38c61e63958a64055
+    name: tdarr-node
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/tdarr-node-0.1.5/tdarr-node-0.1.5.tgz
+    version: 0.1.5
+  tdarr-server:
+  - apiVersion: v2
+    appVersion: 2.35.02
+    created: "2025-04-17T20:45:21.470835727Z"
+    description: A Helm chart for Kubernetes
+    digest: 14661b7deb073dd66a96137f245cd9b1a50df69424dfaedc3bb0ad7a65614f79
+    name: tdarr-server
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/tdarr-server-0.1.5/tdarr-server-0.1.5.tgz
+    version: 0.1.5
+  the-forest:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:21.656162239Z"
+    description: A Helm chart for Kubernetes
+    digest: e7b798c3625bde684221c3e986261daf223428a5439ae2f6204c8fc19d2d47e5
+    name: the-forest
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/the-forest-0.1.0/the-forest-0.1.0.tgz
+    version: 0.1.0
+  unifi:
+  - apiVersion: v2
+    appVersion: v9.0.108
+    created: "2025-04-17T20:45:21.851219537Z"
+    description: A Helm chart for Kubernetes
+    digest: 0f5220d8f2a69d69273c1a3c7baa5e5430e20e12c2b967f4632f3cbc6bce2f63
+    name: unifi
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/unifi-0.2.2/unifi-0.2.2.tgz
+    version: 0.2.2
+  unpackerr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:22.036068646Z"
+    description: A Helm chart for Kubernetes
+    digest: 630a34c91f2f7f5bc5efa9199153c982b16e3a00551dbe7ff5da8302a613632e
+    name: unpackerr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/unpackerr-0.1.0/unpackerr-0.1.0.tgz
+    version: 0.1.0
+  valheim:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:22.194360429Z"
+    description: A Helm chart for Kubernetes
+    digest: 2357cc53d306a99870454eeb2dd419060b19d14521c68d6602ddd2855775ea6f
+    name: valheim
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/valheim-0.1.5/valheim-0.1.5.tgz
+    version: 0.1.5
+  wizarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-17T20:45:22.38250081Z"
+    description: A Helm chart for Kubernetes
+    digest: 5f21a0a8f1e3f1fa897e004904b5a9370c86fc3f8ff029731948d13c16750b5d
+    name: wizarr
+    type: application
+    urls:
+    - https://github.com/racinrandall/helm-charts-devel/releases/download/wizarr-0.1.0/wizarr-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-04-17T20:45:22.382517481Z"
